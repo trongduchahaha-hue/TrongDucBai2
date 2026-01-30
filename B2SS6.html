@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+let bookName = prompt("Nhập tên sách:");
+let borrowerName = prompt("Nhập tên người mượn:");
+let statusInput = prompt("Nhập tình trạng sách (có sẵn, đã mượn, không có sẵn):");
+let hasLibraryCard = prompt("Bạn đã có thẻ thư viện chưa? (nhập 'có' hoặc 'không')");
+let borrowDays = parseInt(prompt("Số ngày mượn (nếu đang được mượn):") || 0);
+
+let status = statusInput ? statusInput.toLowerCase().trim() : "";
+let hasCard = (hasLibraryCard && hasLibraryCard.toLowerCase().trim() === "có");
+
+console.log(`--- HỆ THỐNG QUẢN LÝ MƯỢN SÁCH ---`);
+console.log(`Sách: ${bookName}`);
+console.log(`Người mượn: ${borrowerName}`);
+
+if (status === "có sẵn") {
+    if (hasCard) {
+        console.log("Thông báo: Chúc mừng, bạn có thể mượn sách này.");
+    } else {
+        console.log("Thông báo: Bạn không thể mượn sách nếu không có thẻ thư viện.");
+    }
+
+} else if (status === "đã mượn") {
+    if (borrowDays < 30) {
+        if (hasCard) {
+            console.log("Thông báo: Sách đang được mượn, vui lòng đợi đến khi trả lại.");
+        } else {
+            console.log("Thông báo: Bạn không thể mượn sách nếu không có thẻ thư viện.");
+        }
+    } else {
+
+        console.log("Thông báo: Sách đã mượn quá lâu, hệ thống đang xử lý thu hồi.");
+    }
+
+} else if (status === "không có sẵn") {
+    console.log("Thông báo: Sách này hiện tại không có sẵn trong thư viện, bạn có thể đăng ký mượn sau.");
+
+} else {
+
+    console.error("Lỗi: Thông tin không hợp lệ, vui lòng nhập lại.");
+}
+    </script>
+</body>
+</html>

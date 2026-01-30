@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+let bookName = prompt("Nhập tên sách:");
+let statusInput = prompt("Nhập trạng thái sách ('có sẵn' hoặc 'đã mượn'):");
+let publishYear = parseInt(prompt("Nhập năm xuất bản:"));
+
+let status = statusInput ? statusInput.toLowerCase().trim() : "";
+let currentYear = new Date().getFullYear();
+let ageOfBook = currentYear - publishYear;
+
+console.log(`--- QUẢN LÝ TRẠNG THÁI SÁCH ---`);
+console.log(`Tên sách: ${bookName}`);
+
+if (status === "có sẵn") {
+    if (ageOfBook <= 5) {
+        console.log("Thông báo: Sách này mới và có sẵn để mượn.");
+    } else {
+        console.log("Thông báo: Sách này có sẵn nhưng đã lâu năm.");
+    }
+} else if (status === "đã mượn") {
+    if (ageOfBook <= 10) {
+        console.log("Thông báo: Sách này đã mượn nhưng khá mới, có thể mượn lại sau.");
+    } else {
+        console.log("Thông báo: Sách này đã mượn và khá cũ.");
+    }
+} else {
+    console.log("Lỗi: Trạng thái sách không hợp lệ!");
+}
+    </script>
+</body>
+</html>

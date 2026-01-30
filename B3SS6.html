@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let soLuong;
+
+while (true) {
+    soLuong = prompt("Bạn hãy nhập số lượng sách (phải là số dương):");
+    soLuong = Number(soLuong);
+
+    if (!isNaN(soLuong) && soLuong >= 0) {
+        break; 
+    }
+    alert("Lỗi rồi! Vui lòng nhập một con số hợp lệ.");
+}
+
+if (soLuong < 10) {
+    console.log("Thư viện có ít sách");
+} 
+else if (soLuong <= 20) {
+    console.log("Thư viện có số lượng sách vừa đủ");
+} 
+else {
+    console.log("Thư viện có nhiều sách");
+}
+    </script>
+</body>
+</html>
